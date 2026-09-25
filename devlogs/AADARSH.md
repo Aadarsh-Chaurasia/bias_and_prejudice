@@ -14,3 +14,18 @@ Getting the entities that don't match is as important as finding that do match s
 
 Just created 80/20 split on given data for training and validation. and sample of 2000 rows.
 
+clean -> split by country -> vectorize -> find top 15 matches using KNN (candidate_pairs) -> LightGBM to refine it further.
+
+
+## 1. Cleaning Data
+1. Normalizing -> lowercase, punctuation.
+2. Standardization -> pvt ltd, private limited -> ltd;
+3. Postal_code_extraction -> 
+4. Phonetic Hashing -> lakshmi and laxmi might be same.
+5. Concatenate name + address
+
+## 2. Candidate Pair
+using multi-layer soft blocking, union of 3 index
+1. for typos -> char N-gram
+2. for similar sound by diff spelling -> BM25s
+3. Geographic -> 4 layer spatial blocking -> PIN -> State -> region/city -> alphabet

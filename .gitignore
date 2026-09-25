@@ -1,3 +1,55 @@
 student_resource/
 data/test/
 data/train/
+data/
+Python cache
+
+pycache/
+*.py[cod]
+
+Jupyter checkpoints
+
+.ipynb_checkpoints/
+
+Virtual environments
+
+.venv/
+venv/
+env/
+
+IDE
+
+.vscode/
+.idea/
+
+OS
+
+.DS_Store
+Thumbs.db
+
+Logs
+
+*.log
+
+Environment / secrets
+
+.env
+.env.*
+
+ML generated files
+
+checkpoints/
+runs/
+wandb/
+mlruns/
+outputs/
+predictions/
+
+Model artifacts
+
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.onnx
