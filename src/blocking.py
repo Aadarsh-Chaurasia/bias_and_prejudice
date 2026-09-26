@@ -109,6 +109,9 @@ def run_country_global_scan(
                 pairs.append(_query_and_extract(retriever_s3, chunk_tokens, chunk_ids, s3_ids, score_col, top_k))
                 
             del chunk_tokens
+            
+            # Re-added progress tracking
+            print(f"     ...Processed {chunk_end}/{len(s1_sub)}")
 
     # 4. Query S2 against S3 (Re-using the already indexed S3 retriever)
     if has_s2 and has_s3:
@@ -120,6 +123,9 @@ def run_country_global_scan(
             
             pairs.append(_query_and_extract(retriever_s3, chunk_tokens, chunk_ids, s3_ids, score_col, top_k))
             del chunk_tokens
+            
+            # Re-added progress tracking
+            print(f"     ...Processed {chunk_end}/{len(s2_sub)}")
 
     # Clean up index objects for this country/modality
     del retriever_s2
@@ -129,7 +135,6 @@ def run_country_global_scan(
     merged = pd.concat(pairs, ignore_index=True) if pairs else pd.DataFrame(columns=['entity_A', 'entity_B', score_col])
     print(f"  -> Generated {len(merged)} candidate pairs in {time.time() - t0:.2f}s.")
     return merged
-
 
 def generate_global_candidate_pool(
     s1: pd.DataFrame, 
