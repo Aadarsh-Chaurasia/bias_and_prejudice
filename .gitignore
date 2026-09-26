@@ -3,9 +3,17 @@ data/test/
 data/train/
 data/
 Python cache
+matching_results.tsv
+notebooks/temp_index_us_text/
 
 pycache/
 *.py[cod]
+
+# macOS
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
 
 Jupyter checkpoints
 
